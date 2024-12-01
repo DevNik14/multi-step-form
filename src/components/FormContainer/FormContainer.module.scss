@@ -1,0 +1,13 @@
+.formContainer {
+  display: flex;
+  max-width: 500px;
+  height: 400px;
+}
+
+.desktopSidebar {
+  min-width: 166px;
+  background-image: url("../../../public/images/bg-sidebar-desktop.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
