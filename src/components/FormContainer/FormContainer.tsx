@@ -1,16 +1,17 @@
+import FormNavigation from "../FormNavigation/FormNavigation";
 import styles from "./FormContainer.module.scss";
 
 export default function FormContainer() {
   return (
     <>
       <section className={`${styles.formContainer}`}>
-        <aside className={`${styles.desktopSidebar} sidebar`}></aside>
+        <FormNavigation />
         <div className="formContent">
+          <header>
+            <h1>Personal Info</h1>
+            <p>Please provide your name, email address, and phone number</p>
+          </header>
           <form>
-            <header>
-              <h1>Personal Info</h1>
-              <p>Please provide your name, email address, and phone number</p>
-            </header>
             <div>
               <div>
                 <label htmlFor="name">Name</label>
