@@ -19,3 +19,15 @@
     font-family: Ubuntu-Medium;
     src: url("/fonts/Ubuntu-Medium.ttf");
   }
+
+  ul {
+    list-style-type: none;
+  }
+
+  .container {
+    background: #EEF5FF;
+    height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

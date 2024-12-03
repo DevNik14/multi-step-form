@@ -1,0 +1,34 @@
+.desktopSidebar {
+  background: no-repeat url("/images/bg-sidebar-desktop.svg");
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+}
+
+.desktopSidebar li {
+  margin-top: 10px;
+  color: #fff;
+  font-family: Ubuntu-Bold;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  position: relative;
+}
+
+.desktopSidebar li::before {
+  content: "1";
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  position: absolute;
+  left: -30px;
+  top: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.desktopSidebar li span {
+  display: block;
+  color: lightgray;
+}
