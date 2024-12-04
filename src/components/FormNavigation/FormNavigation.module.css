@@ -1,8 +1,8 @@
 .desktopSidebar {
-  background: no-repeat url("/images/bg-sidebar-desktop.svg");
+  background-image: url("/images/bg-sidebar-desktop.svg");
   background-size: contain;
-  display: flex;
-  justify-content: center;
+  background-repeat: no-repeat;
+  padding: 2rem 5rem 8.3rem 2rem;
 }
 
 .desktopSidebar li {
@@ -11,24 +11,26 @@
   font-family: Ubuntu-Bold;
   text-transform: uppercase;
   font-size: 0.8rem;
-  position: relative;
-}
-
-.desktopSidebar li::before {
-  content: "1";
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  border: 1px solid #fff;
-  position: absolute;
-  left: -30px;
-  top: 4px;
+  line-height: 20px;
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
 .desktopSidebar li span {
   display: block;
+}
+
+.step-count {
   color: lightgray;
+}
+
+ul p {
+  border-radius: 50%;
+  border: 1px solid #fff;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
 }
