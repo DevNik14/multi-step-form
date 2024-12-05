@@ -4,32 +4,28 @@ export default function FormNavigation() {
   return (
     <aside className={`${styles.desktopSidebar} sidebar`}>
       <ul>
-        <li>
-          <p>1</p>
-          <div>
-            <span className="step-count">Step 1</span>
-            <span>Your Info</span>
+        <li className={`${styles.navItem}`}>
+          <div className="step-info">
+            <span className={styles.stepCount}>Step 1</span>
+            <span className="step-name">Your Info</span>
           </div>
         </li>
-        <li>
-          <p>2</p>
-          <div>
-            <span className="step-count">Step 2</span>
-            <span>Select Plan</span>
+        <li className={`${styles.navItem}`}>
+          <div className="step-info">
+            <span className={styles.stepCount}>Step 2</span>
+            <span className="step-name">Select Plan</span>
           </div>
         </li>
-        <li>
-          <p>3</p>
-          <div>
-            <span className="step-count">Step 3</span>
-            <span>Add-ons</span>
+        <li className={`${styles.navItem}`}>
+          <div className="step-info">
+            <span className={styles.stepCount}>Step 3</span>
+            <span className="step-name">Add-ons</span>
           </div>
         </li>
-        <li>
-          <p>4</p>
-          <div>
-            <span className="step-count">Step 4</span>
-            <span>Summary</span>
+        <li className={`${styles.navItem}`}>
+          <div className="step-info">
+            <span className={styles.stepCount}>Step 4</span>
+            <span className="step-name">Summary</span>
           </div>
         </li>
       </ul>
