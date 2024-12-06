@@ -5,27 +5,39 @@ export default function FormNavigation() {
     <aside className={`${styles.desktopSidebar} sidebar`}>
       <ul>
         <li className={`${styles.navItem}`}>
-          <div className="step-info">
+          <div className={styles.stepIndicator}>
+            <p>1</p>
+          </div>
+          <div className={styles.stepInfo}>
             <span className={styles.stepCount}>Step 1</span>
-            <span className="step-name">Your Info</span>
+            <span className={styles.stepName}>Your Info</span>
           </div>
         </li>
         <li className={`${styles.navItem}`}>
-          <div className="step-info">
+          <div className={styles.stepIndicator}>
+            <p>2</p>
+          </div>
+          <div className={styles.stepInfo}>
             <span className={styles.stepCount}>Step 2</span>
-            <span className="step-name">Select Plan</span>
+            <span className={styles.stepName}>Select Plan</span>
           </div>
         </li>
         <li className={`${styles.navItem}`}>
-          <div className="step-info">
+          <div className={styles.stepIndicator}>
+            <p>3</p>
+          </div>
+          <div className={styles.stepInfo}>
             <span className={styles.stepCount}>Step 3</span>
-            <span className="step-name">Add-ons</span>
+            <span className={styles.stepName}>Add-ons</span>
           </div>
         </li>
         <li className={`${styles.navItem}`}>
-          <div className="step-info">
+          <div className={styles.stepIndicator}>
+            <p>4</p>
+          </div>
+          <div className={styles.stepInfo}>
             <span className={styles.stepCount}>Step 4</span>
-            <span className="step-name">Summary</span>
+            <span className={styles.stepName}>Summary</span>
           </div>
         </li>
       </ul>
