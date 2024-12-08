@@ -16,7 +16,8 @@
 .navItem {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  font-size: 13px;
 }
 
 .stepIndicator {
@@ -28,6 +29,12 @@
   justify-content: center;
   align-items: center;
   margin-right: 15px;
+}
+
+.stepIndicator.active {
+  color: hsl(213, 96%, 18%);
+  background: hsl(206, 94%, 87%);
+  border: 2px solid hsl(206, 94%, 87%);
 }
 
 .stepInfo {
@@ -48,4 +55,5 @@
 
 .stepIndicator, .stepCount, .stepName {
   cursor: pointer;
+  margin-bottom: 5px;
 }

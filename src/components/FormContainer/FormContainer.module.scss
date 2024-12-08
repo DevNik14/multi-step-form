@@ -2,12 +2,12 @@
   padding: 15px;
   background: #fff;
   display: grid;
-  grid-template-columns: 250px 500px;
+  grid-template-columns: 250px 550px;
   border-radius: 10px;
 }
 
 .formContent {
-  padding: 0 30px;
+  padding: 0 51px;
   position: relative;
 }
 
@@ -31,6 +31,7 @@
 
 .inputHolder label {
   font-size: 14px;
+  font-weight: 600;
 }
 
 .inputHolder input {
@@ -59,7 +60,7 @@
   transition: all 0.2s ease-in-out;
   position: absolute;
   bottom: 0;
-  right: 31px;
+  right: 44px;
 }
 
 .nextBtn:hover {
