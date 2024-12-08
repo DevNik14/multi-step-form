@@ -1,11 +1,11 @@
-import styles from "./FormNavigation.module.css";
+import styles from "./FormNavigation.module.scss";
 
 export default function FormNavigation() {
   return (
     <aside className={`${styles.desktopSidebar} sidebar`}>
       <ul>
         <li className={`${styles.navItem}`}>
-          <div className={styles.stepIndicator}>
+          <div className={`${styles.stepIndicator} ${styles.active}`}>
             <p>1</p>
           </div>
           <div className={styles.stepInfo}>

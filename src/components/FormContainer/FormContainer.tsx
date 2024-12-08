@@ -9,7 +9,7 @@ export default function FormContainer() {
         <div className={styles.formContent}>
           <header className={styles.formHeader}>
             <h1>Personal Info</h1>
-            <p>Please provide your name, email address, and phone number</p>
+            <p>Please provide your name, email address, and phone number.</p>
           </header>
           <form>
             <div>
