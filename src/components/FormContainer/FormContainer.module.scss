@@ -17,6 +17,8 @@
 
 .formHeader h1 {
   color: hsl(213, 96%, 18%);
+  margin-bottom: 10px;
+  font-weight: 600;
 }
 
 .formHeader p {
@@ -35,8 +37,8 @@
 }
 
 .inputHolder input {
-  margin: 5px 0;
-  padding: 10px 0 10px 15px;
+  margin: 10px 0;
+  padding: 12px 0 12px 15px;
   border: 1px solid hsl(231, 11%, 63%);
   border-radius: 5px;
   color: hsl(213, 96%, 18%);
@@ -60,7 +62,7 @@
   transition: all 0.2s ease-in-out;
   position: absolute;
   bottom: 0;
-  right: 44px;
+  right: 51px;
 }
 
 .nextBtn:hover {
