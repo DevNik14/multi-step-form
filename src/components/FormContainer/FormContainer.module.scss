@@ -68,3 +68,19 @@
 .nextBtn:hover {
   background-color: hsl(213 96% 18% / .9);
 }
+
+@media screen and (max-width: 992px) {
+  .formContainer {
+    display: block;
+    max-width: 375px;
+    padding: 0;
+  }
+
+  .formContent {
+    padding: 0 40px;
+  }
+
+  .nextBtn {
+    position: static;
+  }
+}
