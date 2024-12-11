@@ -1,0 +1,1 @@
+export const navItems = ["Your Info", "Select Plan", "Add-ons", "Summary"];
