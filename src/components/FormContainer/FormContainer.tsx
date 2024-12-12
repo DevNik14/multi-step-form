@@ -1,9 +1,11 @@
 import FormNavigation from "../FormNavigation/FormNavigation";
+import Header from "../Header/Header";
 import styles from "./FormContainer.module.scss";
 
 export default function FormContainer() {
   return (
     <>
+      <Header />
       <section className={`${styles.formContainer}`}>
         <FormNavigation />
         <div className={styles.formContent}>
