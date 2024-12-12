@@ -1,0 +1,11 @@
+.mobileHeader {
+  display: none;
+}
+
+@media screen and (max-width: 992px) {
+  .mobileHeader {
+    display: block;
+    background: url("/images/bg-sidebar-mobile.svg") no-repeat 50%/cover;
+    min-height: 24svh;
+  }
+}

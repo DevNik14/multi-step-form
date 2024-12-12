@@ -72,12 +72,26 @@
 @media screen and (max-width: 992px) {
   .formContainer {
     display: block;
-    max-width: 375px;
+    max-width: 350px;
+    margin: 0 auto;
+    transform: translateY(-20%);
     padding: 0;
   }
 
   .formContent {
-    padding: 0 40px;
+    padding: 25px 30px 15px;
+  }
+
+  .formHeader {
+    margin: 0;
+  }
+
+  .formHeader p {
+    margin-bottom: 15px;
+  }
+
+  .inputHolder label {
+    font-weight: normal;
   }
 
   .nextBtn {
