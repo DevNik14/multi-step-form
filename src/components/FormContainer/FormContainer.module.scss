@@ -51,6 +51,20 @@
   border-radius: 5px;
 }
 
+.formButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 66px;
+}
+
+.goBackBtn {
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: hsl(231, 11%, 63%);
+}
+
 .nextBtn {
   outline: 0;
   border: 0px;
@@ -60,9 +74,6 @@
   padding: 15px 25px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  position: absolute;
-  bottom: 0;
-  right: 51px;
 }
 
 .nextBtn:hover {

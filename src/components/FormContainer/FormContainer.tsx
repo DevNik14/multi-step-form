@@ -32,9 +32,12 @@ export default function FormContainer() {
                   placeholder="e.g. + 1 234 567 890"
                 />
               </div>
-              <button className={styles.nextBtn}>Next Step</button>
             </div>
           </form>
+          <div className={styles.formButtons}>
+            <button className={styles.goBackBtn}>Go Back</button>
+            <button className={styles.nextBtn}>Next Step</button>
+          </div>
         </div>
       </section>
     </>
