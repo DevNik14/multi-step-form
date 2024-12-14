@@ -1,0 +1,120 @@
+.formContainer {
+  padding: 15px;
+  background: #fff;
+  display: grid;
+  grid-template-columns: 250px 550px;
+  border-radius: 10px;
+}
+
+.formContent {
+  padding: 0 51px;
+  position: relative;
+}
+
+.formHeader {
+  margin: 40px 0;
+}
+
+.formHeader h1 {
+  color: hsl(213, 96%, 18%);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.formHeader p {
+  color: hsl(231, 11%, 63%);
+}
+
+.inputHolder {
+  color: hsl(213, 96%, 18%);
+  display: flex;
+  flex-direction: column;
+}
+
+.inputHolder label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.inputHolder input {
+  margin: 10px 0;
+  padding: 12px 0 12px 15px;
+  border: 1px solid hsl(231, 11%, 63%);
+  border-radius: 5px;
+  color: hsl(213, 96%, 18%);
+  font-weight: 700;
+}
+
+.inputHolder input:focus {
+  outline: none;
+  border: 1px solid hsl(243, 100%, 62%);
+  border-radius: 5px;
+}
+
+.formButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 66px;
+}
+
+.goBackBtn {
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: hsl(231, 11%, 63%);
+}
+
+.nextBtn {
+  outline: 0;
+  border: 0px;
+  color: #fff;
+  background-color: hsl(213, 96%, 18%);
+  border-radius: 5px;
+  padding: 15px 20px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-weight: bold;
+}
+
+.nextBtn:hover {
+  background-color: hsl(213 96% 18% / .9);
+}
+
+@media screen and (max-width: 992px) {
+  .formContainer {
+    display: block;
+    max-width: 350px;
+    margin: 0 auto;
+    transform: translateY(-20%);
+    padding: 0;
+  }
+
+  .formHeader h1 {
+    margin-bottom: 20px;
+  }
+
+  .formHeader p {
+    line-height: 1.5rem;
+  }
+
+  .formContent {
+    padding: 30px 26px 20px;
+  }
+
+  .formHeader {
+    margin: 0;
+  }
+
+  .formHeader p {
+    margin-bottom: 15px;
+  }
+
+  .inputHolder label {
+    font-weight: normal;
+  }
+
+  .desktop {
+    display: none;
+  }
+}
