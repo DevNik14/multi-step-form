@@ -1,6 +1,8 @@
 import FormNavigation from "../FormNavigation/FormNavigation";
 import Header from "../Header/Header";
+import FormButtons from "../FormButtons/FormButtons";
 import styles from "./FormContainer.module.scss";
+import MobileButtons from "../FormButtons/MobileButtons";
 
 export default function FormContainer() {
   return (
@@ -34,12 +36,10 @@ export default function FormContainer() {
               </div>
             </div>
           </form>
-          <div className={styles.formButtons}>
-            <button className={styles.goBackBtn}>Go Back</button>
-            <button className={styles.nextBtn}>Next Step</button>
-          </div>
+          <FormButtons />
         </div>
       </section>
+      <MobileButtons />
     </>
   );
 }

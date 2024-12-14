@@ -70,10 +70,11 @@
   border: 0px;
   color: #fff;
   background-color: hsl(213, 96%, 18%);
-  border-radius: 10px;
-  padding: 15px 25px;
+  border-radius: 5px;
+  padding: 15px 20px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+  font-weight: bold;
 }
 
 .nextBtn:hover {
@@ -89,8 +90,16 @@
     padding: 0;
   }
 
+  .formHeader h1 {
+    margin-bottom: 20px;
+  }
+
+  .formHeader p {
+    line-height: 1.5rem;
+  }
+
   .formContent {
-    padding: 25px 30px 15px;
+    padding: 30px 26px 20px;
   }
 
   .formHeader {
@@ -105,7 +114,7 @@
     font-weight: normal;
   }
 
-  .nextBtn {
-    position: static;
+  .desktop {
+    display: none;
   }
 }
