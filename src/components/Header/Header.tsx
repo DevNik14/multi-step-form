@@ -6,7 +6,7 @@ export default function Header() {
     <header className={styles.mobileHeader}>
       <ul>
         {navItems.map((item, i) => {
-          return <li>{i + 1}</li>;
+          return <li key={item}>{i + 1}</li>;
         })}
       </ul>
     </header>

@@ -8,7 +8,7 @@ export const displayNavItemsHandler = () => {
         return (
           <li key={item} className={`${styles.navItem}`}>
             <div className={`${styles.stepIndicator}`}>
-              <p>1</p>
+              <p>{i + 1}</p>
             </div>
             <div className={styles.stepInfo}>
               <span className={styles.stepCount}>Step {i + 1}</span>
