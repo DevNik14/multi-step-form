@@ -9,8 +9,12 @@ export default function Header() {
       <ul>
         {navItems.map((item, i) => {
           return (
-            <NavLink to="/">
-              <li key={item}>{i + 1}</li>
+            <NavLink
+              to={item.path}
+              key={item.name}
+              className={({ isActive }) => (isActive ? `${styles.active}` : "")}
+            >
+              <li>{i + 1}</li>
             </NavLink>
           );
         })}

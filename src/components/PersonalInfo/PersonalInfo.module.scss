@@ -1,0 +1,25 @@
+.inputHolder {
+  color: hsl(213, 96%, 18%);
+  display: flex;
+  flex-direction: column;
+}
+
+.inputHolder label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.inputHolder input[type=text] {
+  margin: 10px 0;
+  padding: 12px 0 12px 15px;
+  border: 1px solid hsl(231, 11%, 63%);
+  border-radius: 5px;
+  color: hsl(213, 96%, 18%);
+  font-weight: 700;
+}
+
+.inputHolder input[type=text]:focus {
+  outline: none;
+  border: 1px solid hsl(243, 100%, 62%);
+  border-radius: 5px;
+}

@@ -8,6 +8,12 @@
   padding-top: 35px;
 }
 
+a.active li {
+  color: hsl(213, 96%, 18%);
+  background: hsl(206, 94%, 87%);
+  border: 2px solid hsl(206, 94%, 87%);
+}
+
 .mobileHeader ul li {
   border-radius: 50%;
   width: 35px;
