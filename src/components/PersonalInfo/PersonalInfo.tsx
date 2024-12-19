@@ -1,3 +1,25 @@
+import styles from "./PersonalInfo.module.scss";
+
 export default function PersonalInfo() {
-  return <h1>Personal Info</h1>;
+  return (
+    <div>
+      <div className={styles.inputHolder}>
+        <label htmlFor="name">Name</label>
+        <input type="text" id="name" name="name" />
+      </div>
+      <div className={styles.inputHolder}>
+        <label htmlFor="email">Email Address</label>
+        <input type="text" id="email" name="email" />
+      </div>
+      <div className={styles.inputHolder}>
+        <label htmlFor="phone">Phone Number</label>
+        <input
+          type="text"
+          id="phone"
+          name="phone"
+          placeholder="e.g. + 1 234 567 890"
+        />
+      </div>
+    </div>
+  );
 }
