@@ -7,13 +7,9 @@ import { Outlet } from "react-router";
 export default function FormContainer() {
   return (
     <>
-      <section className={`${styles.formContainer}`}>
+      <section className={styles.formContainer}>
         <FormNavigation />
         <div className={styles.formContent}>
-          <header className={styles.formHeader}>
-            <h1>Personal Info</h1>
-            <p>Please provide your name, email address, and phone number.</p>
-          </header>
           <form>
             <Outlet />
           </form>

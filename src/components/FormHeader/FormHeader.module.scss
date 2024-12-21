@@ -1,0 +1,28 @@
+.formHeader {
+  margin: 40px 0;
+}
+
+.formHeader h1 {
+  color: hsl(213, 96%, 18%);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.formHeader p {
+  color: hsl(231, 11%, 63%);
+}
+
+@media screen and (max-width: 992px) {
+  .formHeader {
+    margin: 0;
+  }
+
+  .formHeader h1 {
+    margin-bottom: 20px;
+  }
+
+  .formHeader p {
+    line-height: 1.5rem;
+    margin-bottom: 15px;
+  }
+}
