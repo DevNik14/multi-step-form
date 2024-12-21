@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router";
+import { Route, Routes, useNavigate } from "react-router";
 
 import Layout from "./Layout/Layout";
 import SelectPlan from "./components/SelectPlan/SelectPlan";
@@ -7,13 +7,22 @@ import Addons from "./components/Addons/Addons";
 import Summary from "./components/Summary/Summary";
 
 import "./App.scss";
+import { useEffect } from "react";
 
 function App() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (window.location.pathname === "/") {
+      navigate("/personal-info");
+    }
+  }, [window.location]);
+
   return (
     <div className="container">
       <Routes>
-        <Route path="/" element={<PersonalInfo />} />
         <Route element={<Layout />}>
+          <Route path="/" element={<PersonalInfo />} />
           <Route path="personal-info" element={<PersonalInfo />} />
           <Route path="select-plan" element={<SelectPlan />} />
           <Route path="addons" element={<Addons />} />
