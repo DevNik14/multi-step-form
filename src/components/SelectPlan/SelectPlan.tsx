@@ -1,7 +1,21 @@
+import { useEffect } from "react";
 import FormHeader from "../FormHeader/FormHeader";
 import styles from "./SelectPlan.module.scss";
 
 export default function SelectPlan() {
+  useEffect(() => {
+    const section = document.querySelector("section");
+    if (section) {
+      section.style.transform = "translateY(-23.1%)";
+    }
+
+    return () => {
+      if (section) {
+        section.style.transform = "translateY(-31%)";
+      }
+    };
+  }, []);
+
   return (
     <>
       <FormHeader>

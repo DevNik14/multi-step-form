@@ -119,3 +119,28 @@ input:checked + .slider:before {
   font-size: .85rem;
   font-weight: 600;
 }
+
+@media screen and (max-width: 992px) {
+  .priceInfo {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 0;
+  }
+
+  .planItem {
+    height: auto;
+    display: flex;
+    margin-top: 15px;
+    padding: 15px;
+  }
+
+  .planIcon {
+    margin-bottom: 0;
+    margin-right: 15px;
+  }
+
+  .subscriptionType {
+    padding: 15px 0;
+    margin: 20px 0 20px 0;
+  }
+ }
