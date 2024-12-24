@@ -4,16 +4,18 @@ import styles from "./SelectPlan.module.scss";
 
 export default function SelectPlan() {
   useEffect(() => {
-    const section = document.querySelector("section");
-    if (section) {
-      section.style.transform = "translateY(-23.1%)";
-    }
-
-    return () => {
+    if (window.innerWidth <= 992) {
+      const section = document.querySelector("section");
       if (section) {
-        section.style.transform = "translateY(-31%)";
+        section.style.transform = "translateY(-23%)";
       }
-    };
+
+      return () => {
+        if (section) {
+          section.style.transform = "translateY(-30.1%)";
+        }
+      };
+    }
   }, []);
 
   return (
