@@ -1,3 +1,58 @@
+import FormHeader from "../FormHeader/FormHeader";
+import styles from "./Addons.module.scss";
+
 export default function Addons() {
-  return <h1>Addons</h1>;
+  return (
+    <>
+      <FormHeader>
+        <h1>Pick add-ons</h1>
+        <p>Add-ons help enhance your gaming experience.</p>
+      </FormHeader>
+      <div className={styles.services}>
+        <div className={styles.serviceItem}>
+          <label htmlFor="online" className={styles.selected}>
+            <input type="checkbox" name="online" id="online" />
+            <span></span>
+            <div className={styles.serviceInfo}>
+              <p className={styles.serviceTitle}>Online Service</p>
+              <p>Access to multiplayer games</p>
+            </div>
+            <div className={styles.servicePrice}>
+              <p>+$1/mo</p>
+            </div>
+          </label>
+        </div>
+        <div className={styles.serviceItem}>
+          <label htmlFor="larger-storage">
+            <input type="checkbox" name="larger-storage" id="larger-storage" />
+            <span></span>
+            <div className={styles.serviceInfo}>
+              <p className={styles.serviceTitle}>Larger Storage</p>
+              <p>Extra 1TB of cloud save</p>
+            </div>
+            <div className={styles.servicePrice}>
+              <p>+$2/mo</p>
+            </div>
+          </label>
+        </div>
+        <div className={styles.serviceItem}>
+          <label htmlFor="customizable-profile">
+            <input
+              type="checkbox"
+              name="customizable-profile"
+              id="customizable-profile"
+            />
+            <span></span>
+            <div className={styles.serviceInfo}>
+              <p className={styles.serviceTitle}>Customizable Profile</p>
+              <p>Custom theme on your profile</p>
+            </div>
+            <div className={styles.servicePrice}>
+              <p>+$2/mo</p>
+            </div>
+          </label>
+        </div>
+      </div>
+    </>
+  );
 }
