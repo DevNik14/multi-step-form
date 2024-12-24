@@ -15,7 +15,9 @@ export default function Addons() {
             <span></span>
             <div className={styles.serviceInfo}>
               <p className={styles.serviceTitle}>Online Service</p>
-              <p>Access to multiplayer games</p>
+              <p className={styles.serviceDescription}>
+                Access to multiplayer games
+              </p>
             </div>
             <div className={styles.servicePrice}>
               <p>+$1/mo</p>
@@ -28,7 +30,9 @@ export default function Addons() {
             <span></span>
             <div className={styles.serviceInfo}>
               <p className={styles.serviceTitle}>Larger Storage</p>
-              <p>Extra 1TB of cloud save</p>
+              <p className={styles.serviceDescription}>
+                Extra 1TB of cloud save
+              </p>
             </div>
             <div className={styles.servicePrice}>
               <p>+$2/mo</p>
@@ -45,7 +49,9 @@ export default function Addons() {
             <span></span>
             <div className={styles.serviceInfo}>
               <p className={styles.serviceTitle}>Customizable Profile</p>
-              <p>Custom theme on your profile</p>
+              <p className={styles.serviceDescription}>
+                Custom theme on your profile
+              </p>
             </div>
             <div className={styles.servicePrice}>
               <p>+$2/mo</p>
