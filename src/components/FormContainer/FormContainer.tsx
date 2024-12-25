@@ -1,8 +1,7 @@
+import { Outlet } from "react-router";
 import FormNavigation from "../FormNavigation/FormNavigation";
 import FormButtons from "../FormButtons/FormButtons";
 import styles from "./FormContainer.module.scss";
-import MobileButtons from "../FormButtons/MobileButtons";
-import { Outlet } from "react-router";
 
 export default function FormContainer() {
   return (
@@ -16,7 +15,6 @@ export default function FormContainer() {
           <FormButtons />
         </div>
       </section>
-      <MobileButtons />
     </>
   );
 }

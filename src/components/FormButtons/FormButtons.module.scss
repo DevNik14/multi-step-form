@@ -1,6 +1,8 @@
 .formButtons {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  font-size: .9rem;
 }
 
 .desktopButtons {
@@ -21,8 +23,12 @@
   color: hsl(231, 11%, 63%);
 }
 
+a.goBackBtn:visited {
+  color: hsl(231, 11%, 63%);
+}
+
 .nextBtn {
-  outline: 0;
+  outline: none;
   border: 0px;
   color: #fff;
   background-color: hsl(213, 96%, 18%);
@@ -30,7 +36,7 @@
   padding: 15px 20px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  font-weight: bold;
+  font-size: .9rem;
 }
 
 .nextBtn:hover {
