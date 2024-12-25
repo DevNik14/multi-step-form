@@ -16,7 +16,7 @@ export default function SelectPlan() {
         }
       };
     }
-  }, []);
+  }, [window.innerWidth]);
 
   return (
     <>
