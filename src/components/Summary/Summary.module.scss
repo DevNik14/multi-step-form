@@ -1,0 +1,76 @@
+.summaryInfo {
+  background-color: hsl(217, 100%, 97%);
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.planSummaryTitle {
+  color: hsl(213, 96%, 18%);
+  font-size: .95rem;
+  font-weight: 500;
+}
+
+.changeSummaryPlan {
+  color: hsl(231, 11%, 63%);
+  text-decoration: underline;
+  cursor: pointer;
+  margin: 10px 0 20px 0;
+  font-size: .9rem;
+  font-weight: 400;
+}
+
+.horizontalLine {
+  height: 1px;
+  width: 100%;
+  background-color: hsl(231, 11%, 63%);
+}
+
+.serviceSummaryTitle, .summaryTotal {
+  color: hsl(231, 11%, 63%);
+}
+
+.serviceSummaryPrice {
+  color: hsl(213, 96%, 18%);
+}
+
+.planSummary, .serviceSummaryItem {
+  display: flex;
+  justify-content: space-between;
+}
+
+.serviceSummaryItem {
+  margin-top: 10px;
+}
+
+.summaryTotalPriceInfo {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 20px 0 20px ;
+}
+
+.summaryTotal {
+  font-size: .9rem;
+}
+
+.summaryPrice {
+  color: hsl(243, 100%, 62%);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 992px) {
+  .changeSummaryPlan {
+    margin-top: 5px;
+  }
+
+  .planSummaryTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .summaryPrice {
+    font-size: 1.1rem;
+  }
+}
