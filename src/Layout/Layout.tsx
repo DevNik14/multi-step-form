@@ -1,13 +1,16 @@
 import Header from "../components/Header/Header";
 import MobileButtons from "../components/FormButtons/MobileButtons";
 import FormContainer from "../components/FormContainer/FormContainer";
+import { MultiStepFormProvider } from "../contexts/MultiStepFormContext";
 
 export default function Layout() {
   return (
     <>
-      <Header />
-      <FormContainer />
-      <MobileButtons />
+      <MultiStepFormProvider>
+        <Header />
+        <FormContainer />
+        <MobileButtons />
+      </MultiStepFormProvider>
     </>
   );
 }
