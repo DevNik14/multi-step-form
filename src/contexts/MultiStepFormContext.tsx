@@ -8,6 +8,8 @@ type FormValues = {
   phone: string;
   subPlan: boolean;
   period: string;
+  planType: { arcade: number; advanced: number; pro: number };
+  planName: string;
 };
 
 type ContextType = {
@@ -17,6 +19,19 @@ type ContextType = {
 };
 
 const MultiStepFormContext = createContext<null | ContextType>(null);
+
+const planType = {
+  monthly: {
+    arcade: 9,
+    advanced: 12,
+    pro: 15,
+  },
+  yearly: {
+    arcade: 90,
+    advanced: 120,
+    pro: 150,
+  },
+};
 
 export function MultiStepFormProvider({
   children,
@@ -29,6 +44,8 @@ export function MultiStepFormProvider({
     phone: "",
     subPlan: false,
     period: "monthly",
+    planType: planType["monthly"],
+    planName: "arcade",
   });
 
   const onFieldChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -47,13 +64,18 @@ export function MultiStepFormProvider({
         ...oldValues,
         [e.target.name]: e.target.checked,
         period,
+        planType: planType[period],
       };
     });
   };
 
   return (
     <MultiStepFormContext.Provider
-      value={{ formValues, onFieldChangeHandler, onCheckedHandler }}
+      value={{
+        formValues,
+        onFieldChangeHandler,
+        onCheckedHandler,
+      }}
     >
       {children}
     </MultiStepFormContext.Provider>

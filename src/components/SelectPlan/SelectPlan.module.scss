@@ -1,4 +1,4 @@
-.priceInfo {
+.planContainer {
   display: grid;
   grid-template-columns: repeat(3, 3fr);
   grid-gap: 15px;
@@ -17,8 +17,9 @@
 .planItem {
   border: 1px solid hsl(229, 24%, 87%);
   border-radius: 10px;
-  padding: 15px 0 0 15px;
-  height: 150px;
+  padding: 15px 0 15px 15px;
+  min-height: 150px;
+  max-height: 175px;
   cursor: pointer;
   transition: all .3s ease-in-out;
 }
@@ -44,18 +45,24 @@ label.planItem {
   margin-bottom: 35px;
 }
 
-.planPrice {
+.planPriceInfo {
   font-size: 0.875rem;
 }
 
-.planPrice p:nth-last-child(1) {
+.planPrice {
   color: hsl(231, 11%, 63%);
 }
 
 .planTitle {
-  color: hsl(213, 96%, 18%);
   font-weight: bold;
   margin-bottom: 5px;
+  text-transform: capitalize;
+}
+
+.freeMonths {
+  font-size: .7rem;
+  color: hsl(213, 96%, 18%);
+  margin-top: 5px;
 }
 
 .switch {
@@ -131,7 +138,7 @@ input:checked + .slider:before {
 }
 
 @media screen and (max-width: 992px) {
-  .priceInfo {
+  .planContainer {
     display: flex;
     flex-direction: column;
     grid-gap: 0;
@@ -139,6 +146,7 @@ input:checked + .slider:before {
 
   .planItem {
     height: auto;
+    min-height: auto;
     display: flex;
     margin-top: 15px;
     padding: 15px;

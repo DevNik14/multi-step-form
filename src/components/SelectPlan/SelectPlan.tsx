@@ -5,7 +5,48 @@ import styles from "./SelectPlan.module.scss";
 
 export default function SelectPlan() {
   const multiStepForm = useMultiStepForm();
+  const planType = multiStepForm?.formValues.planType;
+  const selectedPlan = multiStepForm?.formValues.planName;
+  const isPlanSelected = (planName: string) => {
+    return selectedPlan === planName ? `${styles.selected}` : "";
+  };
+  const formattedPeriod =
+    multiStepForm?.formValues.period === "monthly" ? "mo" : "yr";
   console.log(multiStepForm?.formValues);
+
+  const displayPlanTypesValuesHandler = () => {
+    if (planType) {
+      return Object.keys(planType).map((plan: string) => {
+        return (
+          <label
+            key={plan}
+            className={`${styles.planItem} ${isPlanSelected(plan)}`}
+            htmlFor={`${plan}`}
+          >
+            <input
+              type="radio"
+              name="planName"
+              id={`${plan}`}
+              value={plan}
+              onChange={multiStepForm?.onFieldChangeHandler}
+            />
+            <div className={styles.planIcon}>
+              <img src={`images/icon-${plan}.\svg`} alt={`${plan}`} />
+            </div>
+            <div className={styles.planPriceInfo}>
+              <p className={styles.planTitle}>{plan}</p>
+              <p className={styles.planPrice}>
+                ${planType[plan as keyof typeof planType]}/{formattedPeriod}
+              </p>
+              {multiStepForm.formValues.period === "yearly" && (
+                <p className={styles.freeMonths}>2 months free</p>
+              )}
+            </div>
+          </label>
+        );
+      });
+    }
+  };
 
   useEffect(() => {
     if (window.innerWidth <= 992) {
@@ -28,40 +69,8 @@ export default function SelectPlan() {
         <h1>Select Your Plan</h1>
         <p>You have the option for monthly of yearly billing.</p>
       </FormHeader>
-      <div className={styles.priceInfo}>
-        <label
-          className={`${styles.planItem} ${styles.selected}`}
-          htmlFor="arcade"
-        >
-          <input type="radio" name="planName" id="arcade" />
-          <div className={styles.planIcon}>
-            <img src="images/icon-arcade.svg" alt="arcade" />
-          </div>
-          <div className={styles.planPrice}>
-            <p className={styles.planTitle}>Arcade</p>
-            <p>$9/mo</p>
-          </div>
-        </label>
-        <label className={styles.planItem} htmlFor="advanced">
-          <input type="radio" name="planName" id="advanced" />
-          <div className={styles.planIcon}>
-            <img src="images/icon-advanced.svg" alt="advanced" />
-          </div>
-          <div className={styles.planPrice}>
-            <p className={styles.planTitle}>Advanced</p>
-            <p>$12/mo</p>
-          </div>
-        </label>
-        <label className={styles.planItem} htmlFor="pro">
-          <input type="radio" name="planName" id="pro" />
-          <div className={styles.planIcon}>
-            <img src="images/icon-pro.svg" alt="pro" />
-          </div>
-          <div className={styles.planPrice}>
-            <p className={styles.planTitle}>Pro</p>
-            <p>$15/mo</p>
-          </div>
-        </label>
+      <div className={styles.planContainer}>
+        {displayPlanTypesValuesHandler()}
       </div>
       <div className={styles.subscriptionType}>
         <div className={styles.monthly}>Monthly</div>
