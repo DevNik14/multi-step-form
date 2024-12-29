@@ -1,7 +1,7 @@
 import { NavLink } from "react-router";
 
 import styles from "./FormNavigation.module.scss";
-import { navItems } from "../../navData";
+import { navItems } from "../../data";
 
 export const displayNavItemsHandler = () => {
   return (

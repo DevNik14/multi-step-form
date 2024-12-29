@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 
-import { navItems } from "../../navData";
+import { navItems } from "../../data";
 
 import styles from "./FormButtons.module.scss";
 

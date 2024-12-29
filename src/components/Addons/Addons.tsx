@@ -1,6 +1,6 @@
 import FormHeader from "../FormHeader/FormHeader";
 import { useMultiStepForm } from "../../contexts/MultiStepFormContext";
-import { addons } from "../../navData";
+import { addons } from "../../data";
 import styles from "./Addons.module.scss";
 
 export default function Addons() {
@@ -10,6 +10,13 @@ export default function Addons() {
     return multiStepForm?.formValues[serviceName as keyof typeof addons]
       ? `${styles.selected}`
       : "";
+  };
+
+  const periodAsKey = (key: string | undefined): "monthly" | "yearly" => {
+    if (key === "yearly") {
+      return key;
+    }
+    return "monthly";
   };
 
   const displayAddonsHandler = () => {
@@ -22,7 +29,6 @@ export default function Addons() {
               name={key}
               checked={multiStepForm?.formValues[key as keyof typeof addons]}
               id={key}
-              value={addons[key as keyof typeof addons][period]}
               onChange={multiStepForm?.selectPlanHandler}
             />
             <span></span>
@@ -35,7 +41,7 @@ export default function Addons() {
             <div className={styles.servicePrice}>
               <p>
                 +$
-                {addons[key as keyof typeof addons][period]}
+                {addons[key as keyof typeof addons][periodAsKey(period)]}
               </p>
             </div>
           </label>
