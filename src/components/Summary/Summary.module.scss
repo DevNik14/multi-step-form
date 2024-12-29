@@ -8,6 +8,11 @@
   color: hsl(213, 96%, 18%);
   font-size: .95rem;
   font-weight: 500;
+  
+}
+
+.planSummaryTitle:first-child {
+  text-transform: capitalize;
 }
 
 .changeSummaryPlan {
@@ -23,6 +28,10 @@
   height: 1px;
   width: 100%;
   background-color: hsl(231, 11%, 63%);
+}
+
+.serviceSummaryTitle {
+  text-transform: capitalize;
 }
 
 .serviceSummaryTitle, .summaryTotal {

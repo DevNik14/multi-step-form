@@ -1,6 +1,6 @@
 import { NavLink } from "react-router";
 
-import { navItems } from "../../navData";
+import { navItems } from "../../data";
 import styles from "./header.module.scss";
 
 export default function Header() {
