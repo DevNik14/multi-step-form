@@ -12,7 +12,6 @@ export default function SelectPlan() {
   };
   const formattedPeriod =
     multiStepForm?.formValues.period === "monthly" ? "mo" : "yr";
-  console.log(multiStepForm?.formValues);
 
   const displayPlanTypesValuesHandler = () => {
     if (planType) {
