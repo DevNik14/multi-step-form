@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { z } from "zod";
 
 type FormChildren = [React.ReactNode, React.ReactNode, React.ReactNode];
 
@@ -14,6 +15,7 @@ type FormValues = {
   "online service": boolean;
   "larger storage": boolean;
   "customizable profile": boolean;
+  personalInfoError: boolean;
 };
 
 type ContextType = {
@@ -44,6 +46,7 @@ export function MultiStepFormProvider({
   children: FormChildren;
 }) {
   const [formValues, setFormValues] = useState({
+    personalInfoError: true,
     fullName: "",
     email: "",
     phone: "",
@@ -85,6 +88,30 @@ export function MultiStepFormProvider({
       };
     });
   };
+
+  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const phoneRegex =
+    /^(\+\d{1,2}\s?)?\(?(\d{3})\)?[-.\s]?(\d{3})[-.\s]?(\d{4})$/;
+
+  const UserSchema = z.object({
+    fullName: z
+      .string()
+      .min(2, { message: "Must be 5 or more characters long" }),
+    email: z.string().refine((vallue) => emailRegex.test(vallue), {
+      message: "Must enter a valid email address",
+    }),
+    phone: z
+      .string()
+      .refine((value) => value.length > 0 && phoneRegex.test(value), {
+        message: "Must enter a valid phone number",
+      }),
+  });
+
+  const emptyTestValues = Object.entries(formValues)
+    .slice(1, 4)
+    .reduce((user, [key, value]) => {
+      return { ...user, [key]: value };
+    }, {});
 
   return (
     <MultiStepFormContext.Provider
