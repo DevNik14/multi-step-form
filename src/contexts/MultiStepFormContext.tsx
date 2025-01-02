@@ -1,9 +1,14 @@
 import { createContext, useContext, useState } from "react";
-import { z } from "zod";
+import { z, ZodError } from "zod";
+
+import styles from "../components/PersonalInfo/PersonalInfo.module.scss";
+import { useNavigate } from "react-router";
 
 type FormChildren = [React.ReactNode, React.ReactNode, React.ReactNode];
 
 type FormValues = {
+  personalInfoError: boolean;
+  showErrorMessage: boolean;
   fullName: string;
   email: string;
   phone: string;
@@ -15,7 +20,6 @@ type FormValues = {
   "online service": boolean;
   "larger storage": boolean;
   "customizable profile": boolean;
-  personalInfoError: boolean;
 };
 
 type ContextType = {
@@ -23,6 +27,7 @@ type ContextType = {
   onFieldChangeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onCheckedHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
   selectPlanHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  checkInputValueHandler: () => void;
 };
 
 const MultiStepFormContext = createContext<null | ContextType>(null);
@@ -40,13 +45,19 @@ const planType = {
   },
 };
 
+const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const phoneRegex = /^(\+\d{1,2}\s?)?\(?(\d{3})\)?[-.\s]?(\d{3})[-.\s]?(\d{4})$/;
+
 export function MultiStepFormProvider({
   children,
 }: {
   children: FormChildren;
 }) {
+  const navigate = useNavigate();
+
   const [formValues, setFormValues] = useState({
     personalInfoError: true,
+    showErrorMessage: false,
     fullName: "",
     email: "",
     phone: "",
@@ -89,14 +100,10 @@ export function MultiStepFormProvider({
     });
   };
 
-  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  const phoneRegex =
-    /^(\+\d{1,2}\s?)?\(?(\d{3})\)?[-.\s]?(\d{3})[-.\s]?(\d{4})$/;
-
   const UserSchema = z.object({
     fullName: z
       .string()
-      .min(2, { message: "Must be 5 or more characters long" }),
+      .min(2, { message: "Must be 2 or more characters long" }),
     email: z.string().refine((vallue) => emailRegex.test(vallue), {
       message: "Must enter a valid email address",
     }),
@@ -108,10 +115,71 @@ export function MultiStepFormProvider({
   });
 
   const emptyTestValues = Object.entries(formValues)
-    .slice(1, 4)
+    .slice(2, 5)
     .reduce((user, [key, value]) => {
       return { ...user, [key]: value };
     }, {});
+
+  const checkInputValueHandler = () => {
+    const inputElements = Array.from(
+      document.querySelectorAll("input[type=text]")
+    ) as HTMLInputElement[];
+
+    try {
+      UserSchema.parse(emptyTestValues);
+      setFormValues((oldValues) => {
+        return {
+          ...oldValues,
+          personalInfoError: false,
+        };
+      });
+      navigate("/select-plan");
+    } catch (error) {
+      const err = error as ZodError;
+
+      const errorFields = err.flatten().fieldErrors;
+      console.log(errorFields);
+
+      if (Object.keys(errorFields).length > 0) {
+        const errorFieldsKeys = Object.keys(errorFields);
+        [...errorFieldsKeys].map((field) =>
+          inputElements.map(
+            (el) =>
+              el.name === field &&
+              addShowClassToErrorSpanHandler(el, errorFields[field]?.[0] ?? "")
+          )
+        );
+        clearNotNeededShowClassNamesHandler(errorFieldsKeys, inputElements);
+      }
+
+      setFormValues((oldValues) => {
+        return {
+          ...oldValues,
+          personalInfoError: true,
+        };
+      });
+    }
+  };
+
+  const addShowClassToErrorSpanHandler = (el: HTMLElement, message: string) => {
+    const span = el.parentNode?.querySelector("span");
+    if (span) {
+      span.classList.add(`${styles.show}`);
+      span.textContent = message;
+    }
+  };
+
+  const clearNotNeededShowClassNamesHandler = (
+    inputName: string[],
+    inputElements: HTMLInputElement[]
+  ) => {
+    inputElements
+      .filter((el) => !inputName.includes(el.name))
+      .forEach((el) => {
+        const span = el.parentNode?.querySelector("span");
+        span?.classList.remove(`${styles.show}`);
+      });
+  };
 
   return (
     <MultiStepFormContext.Provider
@@ -120,6 +188,7 @@ export function MultiStepFormProvider({
         onFieldChangeHandler,
         onCheckedHandler,
         selectPlanHandler,
+        checkInputValueHandler,
       }}
     >
       {children}
