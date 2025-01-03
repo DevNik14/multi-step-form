@@ -1,6 +1,7 @@
-import styles from "./FormButtons.module.scss";
 import GoBackButton from "./GoBackButton";
 import NextButton from "./NextButton";
+
+import styles from "./FormButtons.module.scss";
 
 export default function MobileButtons() {
   return (

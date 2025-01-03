@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import { Route, Routes, useNavigate } from "react-router";
 
 import Layout from "./Layout/Layout";
@@ -7,7 +9,6 @@ import Addons from "./components/Addons/Addons";
 import Summary from "./components/Summary/Summary";
 
 import "./App.scss";
-import { useEffect } from "react";
 
 function App() {
   const navigate = useNavigate();
