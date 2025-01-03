@@ -4,6 +4,7 @@ import { addons } from "../../data";
 import styles from "./Summary.module.scss";
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
+import ThankYou from "../ThankYou/ThankYou";
 
 export default function Summary() {
   const [total, setTotal] = useState(0);
@@ -70,37 +71,43 @@ export default function Summary() {
 
   return (
     <>
-      <FormHeader>
-        <h1>Finishing up</h1>
-        <p>Double-check everything looks OK before confirming.</p>
-      </FormHeader>
-      <div className={styles.summaryInfo}>
-        <div className={styles.planSummary}>
-          <div className={styles.planSummaryItem}>
-            <p className={styles.planSummaryTitle}>
-              {multiStepForm?.formValues.planName} (
-              {multiStepForm?.formValues.period})
-            </p>
-            <Link to="/select-plan">
-              <p className={styles.changeSummaryPlan}>Change</p>
-            </Link>
+      {!multiStepForm?.formValues.subscribed ? (
+        <>
+          <FormHeader>
+            <h1>Finishing up</h1>
+            <p>Double-check everything looks OK before confirming.</p>
+          </FormHeader>
+          <div className={styles.summaryInfo}>
+            <div className={styles.planSummary}>
+              <div className={styles.planSummaryItem}>
+                <p className={styles.planSummaryTitle}>
+                  {multiStepForm?.formValues.planName} (
+                  {multiStepForm?.formValues.period})
+                </p>
+                <Link to="/select-plan">
+                  <p className={styles.changeSummaryPlan}>Change</p>
+                </Link>
+              </div>
+              <p className={styles.planSummaryTitle}>
+                $/{multiStepForm?.formValues.planType[planNameAsKey(planName)]}
+                {formattedPeriod}
+              </p>
+            </div>
+            <div className={styles.horizontalLine}></div>
+            <div className={styles.servicesSummary}>
+              {displaySelectedServices()}
+            </div>
           </div>
-          <p className={styles.planSummaryTitle}>
-            $/{multiStepForm?.formValues.planType[planNameAsKey(planName)]}
-            {formattedPeriod}
-          </p>
-        </div>
-        <div className={styles.horizontalLine}></div>
-        <div className={styles.servicesSummary}>
-          {displaySelectedServices()}
-        </div>
-      </div>
-      <div className={styles.summaryTotalPriceInfo}>
-        <p className={styles.summaryTotal}>
-          Total (per {period?.slice().replace("ly", "")})
-        </p>
-        <p className={styles.summaryPrice}>+{total}$/mo</p>
-      </div>
+          <div className={styles.summaryTotalPriceInfo}>
+            <p className={styles.summaryTotal}>
+              Total (per {period?.slice().replace("ly", "")})
+            </p>
+            <p className={styles.summaryPrice}>+{total}$/mo</p>
+          </div>
+        </>
+      ) : (
+        <ThankYou />
+      )}
     </>
   );
 }

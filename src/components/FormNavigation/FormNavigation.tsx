@@ -2,8 +2,22 @@ import { NavLink } from "react-router";
 
 import styles from "./FormNavigation.module.scss";
 import { navItems } from "../../data";
+import { useEffect } from "react";
+import { useMultiStepForm } from "../../contexts/MultiStepFormContext";
 
 export const displayNavItemsHandler = () => {
+  const multiStepForm = useMultiStepForm();
+
+  useEffect(() => {
+    if (multiStepForm?.formValues.subscribed) {
+      document.querySelectorAll("a").forEach((link) =>
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+        })
+      );
+    }
+  }, [multiStepForm?.formValues.subscribed]);
+
   return (
     <ul>
       {navItems.map((item, i) => {

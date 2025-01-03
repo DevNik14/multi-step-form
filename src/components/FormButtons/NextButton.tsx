@@ -1,9 +1,9 @@
 import { Link } from "react-router";
 
+import { useMultiStepForm } from "../../contexts/MultiStepFormContext";
 import { navItems } from "../../data";
 
 import styles from "./FormButtons.module.scss";
-import { useMultiStepForm } from "../../contexts/MultiStepFormContext";
 
 export default function NextButton() {
   const multiStepForm = useMultiStepForm();
@@ -30,7 +30,14 @@ export default function NextButton() {
         </Link>
       );
     } else if (!nextPath) {
-      return <button className={styles.nextBtn}>Confirm</button>;
+      return (
+        <button
+          className={styles.nextBtn}
+          onClick={multiStepForm?.subscribeValueHandler}
+        >
+          Confirm
+        </button>
+      );
     }
   };
 

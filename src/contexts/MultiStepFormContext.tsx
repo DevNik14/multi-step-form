@@ -20,6 +20,7 @@ type FormValues = {
   "online service": boolean;
   "larger storage": boolean;
   "customizable profile": boolean;
+  subscribed: boolean;
 };
 
 type ContextType = {
@@ -28,6 +29,7 @@ type ContextType = {
   onCheckedHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
   selectPlanHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
   checkInputValueHandler: () => void;
+  subscribeValueHandler: () => void;
 };
 
 const MultiStepFormContext = createContext<null | ContextType>(null);
@@ -56,6 +58,7 @@ export function MultiStepFormProvider({
   const navigate = useNavigate();
 
   const [formValues, setFormValues] = useState({
+    subscribed: false,
     personalInfoError: true,
     showErrorMessage: false,
     fullName: "",
@@ -100,6 +103,15 @@ export function MultiStepFormProvider({
     });
   };
 
+  const subscribeValueHandler = () => {
+    setFormValues((oldValues) => {
+      return {
+        ...oldValues,
+        subscribed: true,
+      };
+    });
+  };
+
   const UserSchema = z.object({
     fullName: z
       .string()
@@ -114,8 +126,8 @@ export function MultiStepFormProvider({
       }),
   });
 
-  const emptyTestValues = Object.entries(formValues)
-    .slice(2, 5)
+  const userInputTestValues = Object.entries(formValues)
+    .slice(3, 6)
     .reduce((user, [key, value]) => {
       return { ...user, [key]: value };
     }, {});
@@ -126,7 +138,7 @@ export function MultiStepFormProvider({
     ) as HTMLInputElement[];
 
     try {
-      UserSchema.parse(emptyTestValues);
+      UserSchema.parse(userInputTestValues);
       setFormValues((oldValues) => {
         return {
           ...oldValues,
@@ -138,7 +150,6 @@ export function MultiStepFormProvider({
       const err = error as ZodError;
 
       const errorFields = err.flatten().fieldErrors;
-      console.log(errorFields);
 
       if (Object.keys(errorFields).length > 0) {
         const errorFieldsKeys = Object.keys(errorFields);
@@ -189,6 +200,7 @@ export function MultiStepFormProvider({
         onCheckedHandler,
         selectPlanHandler,
         checkInputValueHandler,
+        subscribeValueHandler,
       }}
     >
       {children}

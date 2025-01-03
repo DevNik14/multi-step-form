@@ -1,0 +1,31 @@
+.thankYouContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.thankYouTitle {
+  color: hsl(213, 96%, 18%);
+  font-size: 1.8rem;
+  margin: 20px 0;
+}
+
+.thankYouMessage {
+  color: hsl(231, 11%, 63%);
+  line-height: 1.5;
+}
+
+@media screen and (max-width: 992px) { 
+  .thankYouContainer {
+    img {
+      width: 50px;
+    }
+  }
+
+  .thankYouMessage {
+    margin-bottom: 30px;
+  }
+
+}
