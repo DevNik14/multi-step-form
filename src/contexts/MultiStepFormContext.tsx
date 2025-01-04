@@ -4,7 +4,7 @@ import { z, ZodError } from "zod";
 import styles from "../components/PersonalInfo/PersonalInfo.module.scss";
 import { useNavigate } from "react-router";
 
-type FormChildren = [React.ReactNode, React.ReactNode];
+type FormChildren = React.ReactNode;
 
 type FormValues = {
   personalInfoError: boolean;

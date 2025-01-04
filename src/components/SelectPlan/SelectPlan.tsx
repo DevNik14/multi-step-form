@@ -47,21 +47,6 @@ export default function SelectPlan() {
     }
   };
 
-  useEffect(() => {
-    if (window.innerWidth <= 992) {
-      const section = document.querySelector("section");
-      if (section) {
-        section.style.transform = "translateY(-23%)";
-      }
-
-      return () => {
-        if (section) {
-          section.style.transform = "translateY(-30.1%)";
-        }
-      };
-    }
-  }, [window.innerWidth]);
-
   return (
     <>
       <FormHeader>

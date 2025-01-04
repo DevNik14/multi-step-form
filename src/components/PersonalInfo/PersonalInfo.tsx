@@ -20,6 +20,7 @@ export default function PersonalInfo() {
             type="text"
             id="fullName"
             name="fullName"
+            placeholder="e.g. Stephen King"
             value={multiStepForm?.formValues.fullName}
             onChange={multiStepForm?.onFieldChangeHandler}
           />
@@ -31,6 +32,7 @@ export default function PersonalInfo() {
             type="text"
             id="email"
             name="email"
+            placeholder="e.g. stephenking@lorem.com"
             value={multiStepForm?.formValues.email}
             onChange={multiStepForm?.onFieldChangeHandler}
           />
