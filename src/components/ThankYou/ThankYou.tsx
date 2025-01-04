@@ -3,7 +3,7 @@ import styles from "./ThankYou.module.scss";
 export default function ThankYou() {
   return (
     <div className={`${styles.thankYouContainer}`}>
-      <img src="/public/images/icon-thank-you.svg" alt="thank you" />
+      <img src="/images/icon-thank-you.svg" alt="thank you" />
       <h1 className={styles.thankYouTitle}>Thank you!</h1>
       <p className={styles.thankYouMessage}>
         {" "}

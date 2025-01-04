@@ -6,6 +6,7 @@ import FormNavigation from "../FormNavigation/FormNavigation";
 import FormButtons from "../FormButtons/FormButtons";
 
 import styles from "./FormContainer.module.scss";
+import MobileButtons from "../FormButtons/MobileButtons";
 
 export default function FormContainer() {
   const multiStepForm = useMultiStepForm();
@@ -24,6 +25,7 @@ export default function FormContainer() {
           {!multiStepForm?.formValues.subscribed && <FormButtons />}
         </div>
       </section>
+      {!multiStepForm?.formValues.subscribed && <MobileButtons />}
     </>
   );
 }
