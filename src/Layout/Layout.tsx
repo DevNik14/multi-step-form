@@ -1,13 +1,13 @@
 import FormContainer from "../components/FormContainer/FormContainer";
 import MobileButtons from "../components/FormButtons/MobileButtons";
 import { useMultiStepForm } from "../contexts/MultiStepFormContext";
-import MobileHeader from "../components/Header/MobileHeader";
+import MobileNavigation from "../components/MobileNavigation/MobileNavigation";
 
 export default function Layout() {
   const multiStepForm = useMultiStepForm();
   return (
     <>
-      <MobileHeader />
+      <MobileNavigation />
       <FormContainer />
       {!multiStepForm?.formValues.subscribed && <MobileButtons />}
     </>

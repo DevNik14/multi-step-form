@@ -1,7 +1,7 @@
 import { navItems } from "../../data";
-import styles from "./header.module.scss";
+import styles from "./MobileNavigation.module.scss";
 
-export default function MobileHeader() {
+export default function MobileNavigation() {
   const currentPagePath = window.location.pathname.split("/")[1];
   const indexOfPagePath = [...navItems]
     .map((item) => item.path)

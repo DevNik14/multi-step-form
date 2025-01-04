@@ -2,7 +2,7 @@ import { Outlet } from "react-router";
 
 import { useMultiStepForm } from "../../contexts/MultiStepFormContext";
 
-import FormNavigation from "../FormNavigation/FormNavigation";
+import DesktopNavigation from "../DesktopNavigation/DesktopNavigation";
 import FormButtons from "../FormButtons/FormButtons";
 
 import styles from "./FormContainer.module.scss";
@@ -16,7 +16,7 @@ export default function FormContainer() {
   return (
     <>
       <section className={styles.formContainer}>
-        <FormNavigation />
+        <DesktopNavigation />
         <div className={`${styles.formContent} ${addFormContentFlexClass()}`}>
           <form>
             <Outlet />

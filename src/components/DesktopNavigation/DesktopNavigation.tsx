@@ -1,6 +1,6 @@
 import { navItems } from "../../data";
 
-import styles from "./FormNavigation.module.scss";
+import styles from "./DesktopNavigation.module.scss";
 
 export const displayNavItemsHandler = () => {
   const currentPagePath = window.location.pathname.split("/")[1];
@@ -31,7 +31,7 @@ export const displayNavItemsHandler = () => {
   );
 };
 
-export default function FormNavigation() {
+export default function DesktopNavigation() {
   return (
     <>
       <aside className={`${styles.desktopSidebar}`}>
