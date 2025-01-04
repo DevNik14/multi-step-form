@@ -1,10 +1,11 @@
-import { Link } from "react-router";
+import { useNavigate } from "react-router";
 
 import { navItems } from "../../data";
 
 import styles from "./FormButtons.module.scss";
 
 export default function GoBackButton() {
+  const navigate = useNavigate();
   const currentPagePath = window.location.pathname.split("/")[1];
   const currentPagePathIndex = navItems.findIndex(
     (navItem) => navItem.path === currentPagePath
@@ -14,9 +15,12 @@ export default function GoBackButton() {
     currentPagePath === "personal-info" ? (
       <div></div>
     ) : (
-      <Link to={previousPath} className={`${styles.goBackBtn}`}>
+      <button
+        className={`${styles.goBackBtn}`}
+        onClick={() => navigate(previousPath)}
+      >
         Go Back
-      </Link>
+      </button>
     );
 
   return <> {displayBackButtonOrFillerEmptyDiv} </>;

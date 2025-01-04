@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { useNavigate } from "react-router";
 
 import { useMultiStepForm } from "../../contexts/MultiStepFormContext";
 import { navItems } from "../../data";
@@ -7,7 +7,7 @@ import styles from "./FormButtons.module.scss";
 
 export default function NextButton() {
   const multiStepForm = useMultiStepForm();
-
+  const navigate = useNavigate();
   const currentPagePath = window.location.pathname.split("/")[1];
   const currentPagePathIndex = navItems.findIndex(
     (navItem) => navItem.path === currentPagePath
@@ -25,9 +25,9 @@ export default function NextButton() {
       );
     } else if (nextPath) {
       return (
-        <Link to={nextPath} className={styles.nextBtn}>
+        <button className={styles.nextBtn} onClick={() => navigate(nextPath)}>
           Next Step
-        </Link>
+        </button>
       );
     } else if (!nextPath) {
       return (

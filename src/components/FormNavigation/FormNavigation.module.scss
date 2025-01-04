@@ -35,7 +35,7 @@
   margin-right: 15px;
 }
 
-a.active .navItem .stepIndicator {
+.stepIndicator.active {
   color: hsl(213, 96%, 18%);
   background: hsl(206, 94%, 87%);
   border: 2px solid hsl(206, 94%, 87%);
@@ -58,7 +58,6 @@ a.active .navItem .stepIndicator {
 }
 
 .stepIndicator, .stepCount, .stepName {
-  cursor: pointer;
   margin-bottom: 5px;
 }
 
